@@ -1,0 +1,60 @@
+# this document specifies operations that occur on an agent
+
+
+[[tasks]]
+    action = 'visit'
+    url = 'https://shyft.us'
+    repeat_every = 9 # set to 0 to disable repeat
+    start_offset = 2 # start operation 15 seconds after program start ; 
+    hours_of_operation = ['07:27:00', '16:30:00'] # only operate until this time.; hold until this time
+    
+[[tasks]]
+    action = 'run'
+    cmd = 'ping -c1 -p 6861636b746865706c616e6574 shyft.us'
+    repeat_every = 10 # set to 0 to disable repeat
+    start_offset = 4 # start immediately; 10 would mean wait 10 seconds after load and then run    
+
+
+[[tasks]]
+    action = 'run'
+    cmd = 'net view'
+    repeat_every = 10 # set to 0 to disable repeat
+    start_offset = 4 # start immediately; 10 would mean wait 10 seconds after load and then run  
+
+[[tasks]]
+    action = 'run'
+    cmd = 'curl https://ifconfig.me/all'
+    repeat_every = 10 # set to 0 to disable repeat
+    start_offset = 4 # start immediately; 10 would mean wait 10 seconds after load and then run
+    repeat_jitter = 3 # if repeating, how much jitter
+    start_jitter  = 0 # jitter on start time    
+
+
+[[tasks]]
+    action = 'visit'
+    url = 'https://reddit.com'
+    repeat_every = 10 # set to 0 to disable repeat
+    start_offset = 1 # start immediately; 10 would mean wait 10 seconds after load and then run   
+    repeat_jitter = 0 # if repeating, how much jitter
+    start_jitter  = 0 # jitter on start time     
+
+[[tasks]]
+    action = 'wander'
+    url = 'https://msn.com'
+    repeat_every = 0 # set to 0 to disable repeat
+    start_offset = 7 # start 7 seconds in; 10 would mean wait 10 seconds after load and then run
+    
+    
+[[tasks]]
+    action = 'random_visit'
+    urls = [
+        'https://aol.com',
+        'https://cnn.com',
+        'https://cnbc.com',
+        'https://happy.com',
+        'https://sad.com',
+    ]
+    jitter_amount = 3 # force 3 seconds of jitter 
+    repeat_every = 5 # set to 0 to disable repeat
+    start_offset = 0 # start immediately; 10 would mean wait 10 seconds after load and then run    
+    hours_of_operation = ['12:00:00', '13:59:59'] # only operate until this time.; hold until this time
