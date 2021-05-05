@@ -1,0 +1,19 @@
+# default is python uuid.uuid3(uuid.NAMESPACE_DNS, str(uuid.getnode())).hex # based on mac address
+# you can use this to target operations to only hit certain agents
+# AGENT_UUID = 'some_cool_unique_identifier'
+
+# AGENT_TAGS = [
+#     'server',
+#     'compromised',
+#     'web'
+# ]
+
+DEBUG = true
+
+BEACON = true  # disable the beacon with ./casper_client --no-beacon
+C2_BEACON_SERVER = "http://localhost:5000"  # BASE SERVER
+C2_BEACON_ENDPOINT = "/beacon"  # for beaconing stats about operations to casper_server.py
+
+
+# OPS_DIR = './ops' # where operation files are stored
+OPS_DIR = ""  # where operation files are stored

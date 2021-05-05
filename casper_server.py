@@ -2,39 +2,52 @@ from flask import Flask, request, jsonify
 from rich import print
 import json
 import toml
+
 app = Flask(__name__)
 
 STATS = dict()
 
-OPS = ""
+OPS = []
 
-@app.route('/beacon',methods=['GET','POST'])
+
+@app.route("/beacon", methods=["GET", "POST"])
 def beacon():
-    data = None
-    if request.method == 'POST':
-        data = request.get_json(force=True)
-        print(data)
-        STATS[data['uuid']] = data
-    return f'cool... data={data}'
+    incoming_data = None
+    if request.method == "POST":
+        incoming_data = request.get_json(force=True)
+        print(incoming_data)
+        STATS[incoming_data["uuid"]] = incoming_data
 
-@app.route('/stats')
-@app.route('/')
+    return {"OPS": OPS}
+
+
+@app.route("/stats")
+@app.route("/")
 def stats():
     return jsonify(STATS)
 
-@app.route('/newops', methods=['GET', 'POST'])
+
+@app.route("/newops", methods=["GET", "POST"])
 def newops():
-    if request.method == 'POST':
+    global OPS
+    if request.method == "POST":
         data = request.get_json(force=True)
         try:
-            toml.loads(data.get('ops','')) # if this works, it's at least a valid toml file...
-            OPS = data.get('ops') # this is the string the agents are supposed ingest
+
+            for task in data:
+                OPS.append(task)  # this is the string the agents are supposed ingest
+            print("ops", OPS)
         except BaseException as e:
-            return e
-        return "ok"
-    return OPS
+            return {"msg": repr(e)}
+        return {"msg": "ok"}
+    return repr(OPS)
 
+@app.route('/flushops')
+def flushops():
+    global OPS
+    OPS = []
+    print(OPS)
+    return {"msg": "ok"}
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True, port=5000)
