@@ -6,7 +6,7 @@
 
     
     # OPTIONAL - RANDOM VALUES WILL BE USED IF NOT SPECIFIED.
-    sender = 'bill.cox@us.af.mil' #
+    sender = 'bill.cox@mail.mil' #
     email_subj = 'important email'
     # email_body = 'hello. this is important'
     # CUSTOM HEADERS NOT IMPLEMENTED YET
@@ -33,3 +33,5 @@
     start_offset = 0 # start immediately; 10 would mean wait 10 seconds after load and then run
     repeat_jitter = 5 # if repeating, how much jitter
     start_jitter  = 0 # jitter on start time   
+
+

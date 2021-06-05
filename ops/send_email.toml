@@ -1,0 +1,10 @@
+[[tasks]]
+    action = 'send_email'
+    # REQUIRED; at least one recipient email; comma separated
+    recipient_list = ['bob@mail.mil'] 
+
+    # smtp_server = 'some.mail.server.com' 
+    smtp_server = 'localhost'
+    smtp_port = 1025
+
+    

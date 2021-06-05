@@ -37,6 +37,16 @@ Commands:
                 a...
 ```
 
+# Dev Quickstart 
+`git clone <casper_url>`
+
+`cd casper && python3 -m venv venv && source venv/bin/activate`
+
+`pip install -r requirements.txt`
+
+
+
+
 ---
 ## Operation Files
 scripted events. may or may not be repeated.

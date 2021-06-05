@@ -25,6 +25,7 @@ import uuid
 import json
 import socket
 import smtplib
+import poplib
 import ssl
 import sys
 from typing import List
@@ -66,7 +67,7 @@ OPS = []
 
 @app.callback()
 def load_config(
-    config_file: Path = "config.toml",
+    config_file: Path = Path("config.toml"),
     debug: bool = True,
 ):
     global AGENT_UUID
@@ -330,12 +331,12 @@ def _send_email(**kwargs):
     if kwargs.get("encrypted", False):
         context = ssl.create_default_context()
 
-    with smtplib.SMTP(kwargs.get("smtp_server"), kwargs.get("smtp_port")) as s:
+    with smtplib.SMTP(kwargs.get("smtp_server",'localhost'), kwargs.get("smtp_port",1025)) as s:
 
         # s.login(kwargs.get('smtp_user'), kwargs.get('smtp_pass'))
 
         s.sendmail(
-            kwargs.get("sender"), kwargs.get("recipient_list"), kwargs.get("email_body")
+            kwargs.get("sender",''), kwargs.get("recipient_list",[]), kwargs.get("email_body",'')
         )
 
 
@@ -444,7 +445,10 @@ def send_email(
     except BaseException as e:
         print(e)
         if smtp_server == 'localhost' and smtp_port == 1025:
-            print('It looks like you are running the default smtp server settings. \ntry running "python smtp_debugging_server.py" or "python -m smtpd -c DebuggingServer -n localhost:1025"')
+            print('''It looks like you are running the default smtp server settings. 
+try running "cd email_server && python smtp_debugging_server.py" or "python -m smtpd -c DebuggingServer -n localhost:1025" both operate on 1025 for MTA features. 
+You'll probably want to run the POP3 server pop3_debugging_server.py in the same dir. operates on port 1110 by default for MDA features
+''')
         return False
 
 
@@ -548,12 +552,12 @@ def wander(
         return False
 
 
-def load_ops(ops_dir=OPS_DIR) -> list:
+def load_ops(ops_dir=OPS_DIR, op_filter="*") -> list:
     print(f"loading operations from {ops_dir}")
 
     ops = []
 
-    op_files = glob.glob(f"{ops_dir}/*.toml")
+    op_files = glob.glob(f"{ops_dir}/{op_filter}.toml")
 
     for op_file in op_files:
         with open(op_file) as f:
@@ -569,15 +573,17 @@ def load_ops(ops_dir=OPS_DIR) -> list:
 def operate(
     ops=[],
     no_ops: bool = False,
+    op_filter="*",
     new_ops=False,
-    ops_dir: Path = "./ops",
+    ops_dir: Path = Path("./ops"),
     beacon_only: bool = False,
     tags: List[str] = [],
+    
 ):
     """actually fire off the operations defined in the ops.toml files"""
 
     if ops == [] and new_ops == False:
-        ops = load_ops(ops_dir=ops_dir)
+        ops = load_ops(ops_dir=ops_dir, op_filter=op_filter)
     if no_ops == True:
         ops = []
 
