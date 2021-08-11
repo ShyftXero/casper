@@ -65,7 +65,7 @@ start_offset = 0 # wait N seconds after agent startup before starting this task
 
 repeat_every = 0 # Wait N seconds (+/- repeat_jitter) before each cycle; 0 to disable repeating
 
-hours_of_operation = None; # when should a task be allowed to run; None (or missing ) means there are no constrained hours of operation for this task. i.e. it will run whenever the agent runs. 
+hours_of_operation = None # when should a task be allowed to run; None (or missing ) means there are no constrained hours of operation for this task. i.e. it will run whenever the agent runs. 
 # hours_of_operation = ["11:30:15","15:30:00"] # means that this action 
 
 start_jitter = 0
@@ -73,7 +73,7 @@ start_jitter = 0
 repeat_jitter = 0 # how much swing (+/- N ) is applied to the jitter 
 # repeat_every = 60 and repeat_jitter = 30 means that any two cycles could happen 30 seconds apart or as far apart as 90 seconds (plus the time of execution of the task itself). Over time they will be about 60 seconds average; It will be random each loop. 
 
-target_tags = ['compromised', 'web', 'tag3', 'user4'...] # this can be used to selectively apply tasks to agents.  
+target_tags = ['compromised', 'web', 'tag3', 'user4',...] # this can be used to selectively apply tasks to agents.  
 
 target_platform = ['windows', 'linux', ...] # this is for selectively loading tasks from an opfile based upon the agent's self-identified platform; at startup it detects which platform it is running on and beacons that information to the C2 server. 
 
