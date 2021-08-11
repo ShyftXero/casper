@@ -98,7 +98,7 @@ target_id = ['id1', 'id2', ...] # this can be used to selectively choose an agen
 - 1 month (30 days) is `18144000` seconds
 
 # Example op file
-This outlines a narrative where a user visits a website, downloads a file, and runs it. on a any windows-based agent 
+This outlines a narrative where a user starts browsing facebook. decides to visit a website, downloads a file, and runs it. on a any windows-based agent 
 
 ```toml
 [[tasks]]
@@ -139,6 +139,8 @@ This outlines a narrative where a user visits a website, downloads a file, and r
 # hopefully all of the targeting works towards narrowing down to a few logical hosts. You could always just be specific and just use the agent UUID with target_ids 
 
 ```
+Note that they aren't necessarily placed in chronological order top-to-bottom. sequencing happens by tinkering with the start_offset value for the tasks. 
+
 Save that example in the `ops` folder as a .toml file and run `casper_agent.exe operate` 
 
  see `ops\example_op_files` for more details. eventually they will be documented on this page as well... for now read the comments in the toml files. 
