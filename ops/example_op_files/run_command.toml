@@ -1,0 +1,57 @@
+[[tasks]]
+    target_tags = [ # tags are applied to an agent at startup via commandline args to OPERATE or via a config file adjacent to casper_agent
+       'web', # this is an arbitrary string that signals agents with this string to execute this task
+       'compromised', # as long as one tag matches, the agent will execute this task.  
+    ]
+    
+    action = 'run'
+    cmd = 'ping -c1 -p 6861636b746865706c616e6574 shyft.us'
+
+    # Optional 
+    repeat_every = 10 # set to 0 to disable repeat
+    start_offset = 4 # start immediately; 10 would mean wait 10 seconds after load and then run    
+
+
+
+[[tasks]]
+   target_platform = [  # OPTIONAL; this command only makes sense on WINDOWS so don't make a linux machine interpret it.
+       'linux',
+    ]
+
+    action = 'run'
+    cmd = 'smbclient -L \\1.2.3.4'
+
+    # Optional 
+    repeat_every = 1 # repeat this task every N seconds;  set to 0 to disable repeating
+    repeat_jitter = 0 # if repeating this task, apply N seconds of jitter (+/-) should be 
+
+
+[[tasks]]
+    target_platform = [  # OPTIONAL; this command only makes sense on WINDOWS so don't make a linux machine interpret it.
+       'windows',
+    ]
+
+    action = 'run'
+    cmd = 'net view'
+    
+    # Optional 
+    repeat_every = 10 # set to 0 to disable repeat
+    start_offset = 4 # start immediately; 10 would mean wait 10 seconds after load and then run  
+
+
+[[tasks]]
+    target_uuids = [
+        'some_cool_unique_identifier',
+        'c5cad57d701b3ab1a97100d05bda233b', # this is to target a specific agent by UUID
+    ]
+        # this can be known ahead of time by running `casper_agent get-uuid`
+        # UUID is deterministic and is derived from the MAC address. if that changes the UUID changes (migrating between vm hosts); 
+        # uuid = uuid.uuid3( uuid.NAMESPACE_DNS, str( uuid.getnode() ) ).hex  
+    
+    action = 'run'
+    cmd = 'curl https://ifconfig.me/all'
+    repeat_every = 10 # set to 0 to disable repeat
+    start_offset = 4 # start immediately; 10 would mean wait 10 seconds after load and then run
+    repeat_jitter = 3 # if repeating, how much jitter
+    start_jitter  = 0 # jitter on start time    
+

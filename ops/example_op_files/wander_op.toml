@@ -1,0 +1,11 @@
+[[tasks]]
+    action = 'wander'
+    starting_url = 'https://reddit.com' # start at this address and collect all the links
+    # visit a random page in the list of links (like a web crawler)
+    # repeat this process of visiting random pages WANDER_DEPTH times
+    
+    wander_depth = 3 # how many layers deep to go from the STARTING_URL
+    wander_dwell = 1 # wait N seconds before moving to the next layer / depth
+
+    repeat_every = 1 # repeat this task every N seconds;  set to 0 to disable repeating
+    repeat_jitter = 0 # if repeating this task, apply N seconds of jitter (+/-) should be 

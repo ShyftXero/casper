@@ -1,0 +1,19 @@
+[[tasks]]
+    action = 'visit'
+    url = 'https://cnn.com'
+    
+
+    repeat_every = 5 # repeat this task every N seconds;  set to 0 to disable repeating
+    start_offset = 0 # start after N seconds; 0 to start immediately   
+    repeat_jitter = 0 # if repeating this task, N seconds of jitter (+/-) should be applied; 
+    
+    start_jitter  = 0 # jitter on start time how long to jitter upon starting      
+    
+    hours_of_operation = [ "12:00:00", "14:00:00"] # start_time, stop_time; this means 1200 hours to 1400 hours 
+    # you can simply omit this line to have the task run at any point duing the day.
+
+
+
+
+
+

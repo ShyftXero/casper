@@ -1,0 +1,26 @@
+# this document specifies operations that occur on an agent
+[[tasks]]   
+    action = 'random_visit' # only visit these trusted pages...
+    urls = [
+        'https://aol.com',
+        'https://cnn.com',
+        'https://cnbc.com',
+        'https://happy.com',
+        'https://sad.com',
+    ]
+    jitter_amount = 3 # force 3 seconds of jitter 
+    repeat_every = 5 # set to 0 to disable repeat
+    start_offset = 0 # start immediately; 10 would mean wait 10 seconds after load and then run    
+    # hours_of_operation = ['12:00:00', '13:59:59'] # only operate until this time.; hold until this time
+
+[[tasks]]
+
+    action = 'visit'
+    url = 'http://httpbin.org'
+
+    repeat_every = 9 # set to 0 to disable repeat
+    start_offset = 2 # start operation 15 seconds after program start ; 
+    # hours_of_operation = ['12:27:00', '16:30:00'] # only operate within this time window; hold until this time
+    
+
+

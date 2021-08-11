@@ -1,0 +1,55 @@
+
+# minimal email task. all of the other fields will be filled with random data. 
+[[tasks]]
+    action = 'send_email'
+    # REQUIRED; at least one recipient email; comma separated
+    recipient_list = ['shyft@shyft.us', 'bob.smith@mail.mil'] 
+
+    # OPTIONAL - REASONABLE  4GGHRANDOM VALUES WILL BE USED IF NOT SPECIFIED.
+    # sender = 'bill.cox@mail.mil' #
+    # email_subj = 'important email'
+    # email_body = 'hello. this is important'
+    repeat_every = 3 # set to 0 to disable repeating this action
+    start_offset = 0 # start immediately; 10 would mean wait 10 seconds after load and then run
+    repeat_jitter = 5 # if repeating, how much jitter
+    start_jitter  = 0 # jitter on start time   
+    
+
+# more robust email task where extra fields are specified
+[[tasks]]
+    action = 'send_email'
+    # REQUIRED; at least one recipient email
+    recipient_list = ['shyft@shyft.us', 'bob.smith@mail.mil'] 
+
+    # OPTIONAL - RANDOM VALUES WILL BE USED IF NOT SPECIFIED.
+    sender = 'bill.cox@mail.mil' #
+    email_subj = 'important email'
+    email_body = 'hello. this is important'
+   
+    # CUSTOM HEADERS NOT IMPLEMENTED YET
+    email_headers = """                 
+        Custom-Header-1: some val
+        Custom-Header-2: some new val
+    """
+    # ATTACHMENTS NOT IMPLEMENTED YET
+    email_attachments = [               
+        'op_files/file.pdf'
+    ]
+
+    # OPTIONAL - THESE match the defaults. 
+    smtp_server = 'localhost' 
+    smtp_port = 1025
+    encrypted = false # NOT IMPLEMENTED YET 
+
+
+    # OPTIONAL - common to all tasks 
+    target_uuids = ['all'] # explicitly state that 'all' uuids should execute this task; this is the default behaviour. if you have an agent_uuid manually set to 'all'... that's weird.
+    # target_tags = ['compromised']
+    
+    
+    repeat_every = 0 # set to 0 to disable repeating this action
+    start_offset = 0 # start immediately; 10 would mean wait 10 seconds after load and then run
+    repeat_jitter = 5 # if repeating, how much jitter
+    start_jitter  = 0 # jitter on start time   
+
+

@@ -1,0 +1,19 @@
+[[tasks]]
+    action = 'download'
+    url = 'https://file-examples-com.github.io/uploads/2017/10/file_example_PNG_500kB.png'
+
+
+# [[tasks]]
+#     action = 'download'
+#     url = 'https://file-examples-com.github.io/uploads/2017/10/file_example_PNG_500kB.png'
+#     download_dir = '/tmp' # save somewhere else on the computer... # target this for appropriate OS path
+
+
+# [[tasks]]
+#     action = 'download'
+#     url = 'http://www.africau.edu/images/default/sample.pdf'
+#     repeat_every = 15
+#     repeat_jitter = 5
+
+
+
