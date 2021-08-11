@@ -119,7 +119,7 @@ This outlines a narrative where a user visits a website, downloads a file, and r
     'abcdef0123456789'
   ]
   action = 'run'
-  cmd = "C:\users\user1\desktop\game.exe"
+  cmd = "C:\\users\\user1\\desktop\\game.exe"
   start_offset = 180 # at least 3 minutes in but wait until 1230 to start 
   hours_of_operation = ['12:30:00', '13:00:00'] # this task will only start between these hours
 
