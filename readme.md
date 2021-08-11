@@ -129,7 +129,7 @@ This outlines a narrative where a user visits a website, downloads a file, and r
   wander_depth = 3 # how many pages deep
   wander_dwell = 30 # how long to sit on each page  +/- wander_jitter
   wander_jitter = 15
-  repeat_every 300  # repeat this process every 5 minutes; simulate someone visiting facebook every 5 minutes
+  repeat_every = 300  # repeat this process every 5 minutes; simulate someone visiting facebook every 5 minutes
   
 # hopefully all of the targeting works towards narrowing down to a few logical hosts. You could always just be specific and just use the agent UUID with target_ids 
 
