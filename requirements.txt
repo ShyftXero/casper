@@ -1,9 +1,9 @@
-diskcache==5.2.1
 requests_html==0.10.0
-pymta==0.7.1
+diskcache==5.2.1
+toml==0.10.2
 Flask==2.0.0
 pony==0.7.14
-toml==0.10.2
-rich==10.2.2
-typer==0.3.0
-pyinstaller==4.3
+pymta==0.7.1
+pyppeteer==0.2.5
+rich==10.7.0
+typer==0.3.2

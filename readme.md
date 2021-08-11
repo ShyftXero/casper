@@ -75,7 +75,7 @@ repeat_jitter = 0 # how much swing (+/- N ) is applied to the jitter
 
 target_tags = ['compromised', 'web', 'tag3', 'user4',...] # this can be used to selectively apply tasks to agents.  
 
-target_platform = ['windows', 'linux', ...] # this is for selectively loading tasks from an opfile based upon the agent's self-identified platform; at startup it detects which platform it is running on and beacons that information to the C2 server. 
+target_platform = ['win32', 'linux', ...] # this is for selectively loading tasks from an opfile based upon the agent's self-identified platform; at startup it detects which platform it is running on and beacons that information to the C2 server. 
 
 target_id = ['id1', 'id2', ...] # this can be used to selectively choose an agent to run a task on. This is most useful in combination with the beacon method to push new operation files to agents mid-event. This is akin to having C2 over those agents as you can run remote commands and capture their output
 
@@ -136,7 +136,7 @@ This outlines a narrative where a user visits a website, downloads a file, and r
 ```
 Save that example in the `ops` folder as a .toml file and run `casper_agent.exe operate` 
 
-
+ see `ops\example_op_files` for more details. eventually they will be documented on this page as well... for now read the comments in the toml files. 
 
 ---
 # The C2 Server

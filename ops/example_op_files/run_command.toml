@@ -28,7 +28,7 @@
 
 [[tasks]]
     target_platform = [  # OPTIONAL; this command only makes sense on WINDOWS so don't make a linux machine interpret it.
-       'windows',
+       'win32',
     ]
 
     action = 'run'
