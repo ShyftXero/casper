@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify
+#!/usr/bin/env python3
+from flask import Flask, request, jsonify, render_template
 from rich import print
 import json
 import toml
@@ -24,7 +25,9 @@ def beacon():
 @app.route("/stats")
 @app.route("/")
 def stats():
-    return jsonify(STATS)
+    resp = json.dumps(STATS, sort_keys = True, indent = 4, separators = (',', ': '))
+
+    return f'<pre>{resp}</pre>'
 
 
 @app.route("/newops", methods=["GET", "POST"])
@@ -49,5 +52,13 @@ def flushops():
     print(OPS)
     return {"msg": "ok"}
 
+@app.get("/hud")
+def hud():
+    return render_template('hud.html')
+
+@app.get("/agent/<agent_id>")
+def agent_id(agent_id):
+    return render_template('hud.html', agent_data=STATS[agent_id])
+
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(host='0.0.0.0', debug=True, port=5000)

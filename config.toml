@@ -17,3 +17,4 @@ C2_BEACON_ENDPOINT = "/beacon"  # for beaconing stats about operations to casper
 
 # OPS_DIR = './ops' # where operation files are stored
 OPS_DIR = ""  # where operation files are stored
+DOWNLOAD_DIR = "DOWNLOADED_FILES"

@@ -1,8 +1,8 @@
 diskcache==5.2.1
+requests_html==0.10.0
+pymta==0.7.1
 Flask==2.0.0
 pony==0.7.14
-pymta==0.7.1
-requests_html==0.10.0
 toml==0.10.2
 rich==10.2.2
 typer==0.3.2

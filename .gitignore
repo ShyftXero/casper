@@ -1,1 +1,6 @@
-build/*
+venv/
+__pycache__/
+build/
+dist/
+email_server/mail.sqlite
+DOWNLOADED_FILES/*
