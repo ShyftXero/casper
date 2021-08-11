@@ -110,7 +110,7 @@ This outlines a narrative where a user visits a website, downloads a file, and r
   ] 
   action = 'download'
   url = "https://somesite.com/game.exe"
-  download_dir = "C:\users\user1\desktop" # this path would only make sense on windows
+  download_dir = "C:\\users\\user1\\desktop" # this path would only make sense on windows
   start_offset = 120 # 2 minutes after start
   start_jitter = 10
 
