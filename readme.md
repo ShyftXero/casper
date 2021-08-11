@@ -9,6 +9,11 @@ You can script out your scenarios in one or more "operation files" (specified in
 
 The agents will run in independent of the C2 server and will load all of the `.toml` files in the `./ops` adjacent to the program. those things can be configured, of course.  
 
+
+ugh... issue... wander isn't closing the browswer... lots of stray processes. use `get-process chrome | stop-process ` to kill them... 
+
+5 or so minutes of a visit and wander generated about 400Mb of pcap to sift through. beacon was set to whatever the default is (3 seconds + jitter?) 
+
 Originally inspired by https://github.com/cmu-sei/GHOSTS
 
 ---
