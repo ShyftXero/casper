@@ -10,8 +10,7 @@ build_windows: clean
 	# docker run -v "$(pwd):/src/" cdrx/pyinstaller-windows 'pyinstaller -y --onedir --add-data "ops;ops" --add-data "C:\python37\Lib\site-packages\pyppeteer-0.2.5.dist-info;pyppeteer-0.2.5.dist-info" --add-data "config.toml;." casper_agent.py'
 	
 	
-	pyinstaller -y --onedir --add-data "ops;ops" --add-data "C:\Users\IEUser\miniconda3\Lib\site-packages\pyppeteer-0.2.5.dist-info;pyppeteer-0.2.5.dist-info" --add-data "config.toml;." casper_agent.py
-	cd dist
+	pyinstaller -y --onedir --add-data "ops;ops" --add-data "C:\\Users\\IEUser\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\pyppeteer-0.2.5.dist-info;pyppeteer-0.2.5.dist-info" --add-data "config.toml;." casper_agent.py	cd dist
 	zip -r casper_agent_windows.zip windows/
 	cd ..
 	
